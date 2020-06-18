@@ -3,19 +3,27 @@ const Beer = require('../models/Beer');
 // @desc    Get all beers
 // @rotue   GET /api/v1/beers
 // @access  Private
-exports.getBeers = (req, res, next) => {
-  res
-    .status(200)
-    .json({ success: true, msg: 'Show all beers', hello: req.hello });
+exports.getBeers = async (req, res, next) => {
+  try {
+    const beers = await Beer.find();
+
+    res.status(200).json({ success: true, data: beers });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
 };
 
 // @desc    Get single beer
 // @rotue   GET /api/v1/beers/:id
 // @access  Private
-exports.getBeer = (req, res, next) => {
-  res
-    .status(200)
-    .json({ success: true, msg: `Show single beer ${req.params.id}` });
+exports.getBeer = async (req, res, next) => {
+  try {
+    const beer = await Beer.findById(req.params.id);
+
+    res.status(200).json({ success: true, data: beer });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
 };
 
 // @desc    Create new beer
