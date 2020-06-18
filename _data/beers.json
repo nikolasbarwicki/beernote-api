@@ -6,7 +6,15 @@
     "style": "IPA - Milkshake",
     "ABV": 5.9,
     "IBU": 50,
-    "rating": 4,
-    "createdAt": ""
+    "rating": 4
+  },
+  {
+    "name": "PINTA Atak Chmielu",
+    "brewery": "Browar PINTA",
+    "country": "PL",
+    "style": "IPA",
+    "ABV": 6.1,
+    "IBU": 58,
+    "rating": 3
   }
 ]

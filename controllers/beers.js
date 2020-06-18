@@ -1,3 +1,5 @@
+const Beer = require('../models/Beer');
+
 // @desc    Get all beers
 // @rotue   GET /api/v1/beers
 // @access  Private
@@ -19,8 +21,14 @@ exports.getBeer = (req, res, next) => {
 // @desc    Create new beer
 // @rotue   POST /api/v1/beers
 // @access  Private
-exports.createBeer = (req, res, next) => {
-  res.status(200).json({ success: true, msg: 'Add new beer' });
+exports.createBeer = async (req, res, next) => {
+  try {
+    const beer = await Beer.create(req.body);
+
+    res.status(201).json({ success: true, data: beer });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
 };
 
 // @desc    Update beer
