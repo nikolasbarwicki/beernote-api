@@ -2,7 +2,9 @@
 // @rotue   GET /api/v1/beers
 // @access  Private
 exports.getBeers = (req, res, next) => {
-  res.status(200).json({ success: true, msg: 'Show all beers' });
+  res
+    .status(200)
+    .json({ success: true, msg: 'Show all beers', hello: req.hello });
 };
 
 // @desc    Get single beer
