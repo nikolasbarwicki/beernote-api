@@ -7,6 +7,12 @@ exports.getBeers = async (req, res, next) => {
   try {
     const beers = await Beer.find();
 
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept',
+    );
+
     res.status(200).json({ success: true, count: beers.length, data: beers });
   } catch (err) {
     res.status(400).json({ success: false });
