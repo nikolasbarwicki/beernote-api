@@ -30,6 +30,10 @@ const BeerSchema = new mongoose.Schema({
     max: [5, 'Rating must can not be more than 5'],
     required: [true, 'Please rate a beer'],
   },
+  userId: {
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
