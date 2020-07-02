@@ -18,11 +18,11 @@ const BeerSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please choose a style'],
   },
-  ABV: {
-    type: Number,
+  abv: {
+    type: String,
   },
-  IBU: {
-    type: Number,
+  ibu: {
+    type: String,
   },
   rating: {
     type: Number,
